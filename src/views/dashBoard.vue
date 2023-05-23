@@ -1,9 +1,9 @@
 <template>
-  <div class="v-header">header</div>
+  <div>dashBoard</div>
 </template>
   
 <script lang='ts' setup>
-  
+    
 </script>
   
 <style lang='less' scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="v-header">header</div>
+  <div>403 forbidden</div>
 </template>
   
 <script lang='ts' setup>

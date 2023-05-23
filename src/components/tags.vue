@@ -1,5 +1,5 @@
 <template>
-  <div class="v-header">header</div>
+  <div>tags</div>
 </template>
   
 <script lang='ts' setup>

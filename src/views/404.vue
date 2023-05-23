@@ -1,5 +1,5 @@
 <template>
-  <div class="v-header">header</div>
+  <div>404 not found</div>
 </template>
   
 <script lang='ts' setup>
