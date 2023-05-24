@@ -5,10 +5,9 @@
 </template>
 
 <script setup lang="ts">
-  // import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-  import UK from 'element-plus/dist/locale/uk.js'
-
+// import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import UK from 'element-plus/dist/locale/uk.js'
 </script>
-<style scoped>
-
+<style>
+@import '@/assets/style/main.css';
 </style>

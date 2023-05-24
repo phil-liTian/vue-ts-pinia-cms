@@ -1,12 +1,13 @@
 <template>
-  <div class="dashBoard">dashBoard</div>
+  <div class="importView">import</div>
 </template>
 
 <script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-.dashBoard {
+.importView {
   height: 100%;
-  background-color: #bbb;
+  background-color: #ccc;
+  color: red;
 }
 </style>

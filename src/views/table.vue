@@ -1,12 +1,12 @@
 <template>
-  <div class="dashBoard">dashBoard</div>
+  <div class="table">table</div>
 </template>
 
 <script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-.dashBoard {
+.table {
   height: 100%;
-  background-color: #bbb;
+  background-color: #ccc;
 }
 </style>

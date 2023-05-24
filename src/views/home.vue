@@ -1,36 +1,28 @@
 <template>
-  <div class="home">
-    <v-header />
-    <v-sidebar />
+  <v-header />
+  <v-side-bar />
+  <div class="content-box" :class="{ 'content-collapse': sidebar.collapse }">
     <v-tags />
-    home: {{ tags.list }}
-    <el-button @click="addTag">增加</el-button>
-    {{ state.name || '暂无数据' }}
-    <el-date-picker></el-date-picker>
+
+    <div class="content">
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
-  
+
 <script setup lang="ts" name="home">
-import { onMounted, reactive } from 'vue'
-import { useTagsStore } from '../store/tags';
-import vHeader from '../components/header.vue'
-import vSidebar from '../components/sideBar.vue'
-import vTags from '../components/tags.vue'
+import { useTagsStore } from '../store/tags'
+import { useSideBarStore } from '@s/sideBar.ts'
+import vHeader from '@c/header.vue'
+import vTags from '@c/tags.vue'
+import vSideBar from '@c/sideBar.vue'
+
 const tags = useTagsStore()
-
-const state = reactive({
-  name: 'phil'
-})
-
-const addTag = () => {
-  tags.addTagsItem({ title: 'zs', path: '/home', name: 'zs' })
-}
-
-onMounted(() => {
-  console.log('onMounted');
-})
+const sidebar = useSideBarStore()
 </script>
-  
-<style lang='less' scoped>
-  
-</style>
+
+<style lang="less" scoped></style>

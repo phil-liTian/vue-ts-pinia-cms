@@ -1,11 +1,11 @@
 <template>
-  <div>login</div>
+  <div class="login-wrap">
+    <div class="cms-login">
+      <div class="cms-title">内容管理系统</div>
+    </div>
+  </div>
 </template>
-  
-<script setup lang="ts">
 
-</script>
-  
-<style lang='less' scoped>
-  
-</style>
+<script setup lang="ts"></script>
+
+<style lang="less" scoped></style>
