@@ -66,8 +66,9 @@ const setTags = (route: any) => {
   if( !isExistTag ) {
     // 最多只能有8个tag
     if( tags.list.length > 8 ) tags.removeTagItem(0)
+    
     tags.addTagsItem({
-      title: route.meta.title,
+      title: route.meta.name,
       name: route.name,
       path: route.fullPath
     })

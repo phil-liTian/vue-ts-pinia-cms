@@ -54,12 +54,19 @@ import { useRouter } from 'vue-router'
 const sidebar = useSideBarStore()
 const message: number = 2
 const router = useRouter()
+type ICommand = 'user' | 'loginout'
 
 const collapseChange = () => {
   sidebar.handleChangeCollapse()
 }
 
-const handleCommand = () => {}
+const handleCommand = (command: ICommand) => {
+  console.log('command', command);
+  if( command === 'loginout' ) {
+    router.push('/login')
+  }
+  
+}
 </script>
 
 <style scoped>

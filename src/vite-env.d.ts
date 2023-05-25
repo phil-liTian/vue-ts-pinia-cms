@@ -8,3 +8,5 @@ declare module '*.vue' {
 }
 
 declare module '*.ts'
+declare module 'mockjs'
+declare module 'vue-schart'

@@ -1,5 +1,5 @@
 <template>
-  <div class="lt-button">
+  <div class="lt-button" @click="handleClick">
     <el-button v-bind="$attrs">
       <el-icon v-if="props.icon">
         <component :is="props.icon"></component>
@@ -17,6 +17,11 @@
       default: ''
     }
   })
+  const emits = defineEmits(['click'])
+
+  const handleClick = () => {
+    emits('click')
+  }
 </script>
   
 <style lang='less' scoped>

@@ -4,6 +4,10 @@ import Home from '../views/home.vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
+    redirect: '/dashboard'
+  },
+  {
+    path: '/',
     name: 'Home',
     component: Home,
     meta: {

@@ -1,7 +1,6 @@
 function parseComponentNameByPath (path: string, ext = '.vue') {
 	let paths: string[] = path.split('/');
 	path = paths[paths.length - 1];
-	// return path
 	if (!path.endsWith(ext)) {
 		return null;
 	}

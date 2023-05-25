@@ -24,6 +24,10 @@ export default defineConfig({
       {
         find: '@c',
         replacement: resolve(__dirname, 'src/components')
+      },
+      {
+        find: '@u',
+        replacement: resolve(__dirname, 'src/utils')
       }
     ]
   }
