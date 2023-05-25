@@ -17,12 +17,12 @@
     <!-- 点击全部关闭, 或者关闭其他 -->
     <div class="tags-close-box">
       <el-dropdown @command="handleTags">
-        <el-button type="primary">
+        <lt-button type="primary" size="small">
           标签选项
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
-        </el-button>
+        </lt-button>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="all">关闭所有</el-dropdown-item>
