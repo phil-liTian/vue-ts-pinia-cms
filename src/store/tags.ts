@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-interface tagItem {
+export interface tagItem {
   name: string
   path: string
   title: string
@@ -10,6 +10,15 @@ export const useTagsStore = defineStore('tags', {
   state: () => {
     return {
       list: <tagItem[]>[{ name: '首页', path: '/dashboard', title: '首页' }]
+    }
+  },
+
+  getters: {
+    show: state => {
+      return state.list.length > 0
+    },
+    nameList: state => {
+      return state.list.map(item => item.name)
     }
   },
 

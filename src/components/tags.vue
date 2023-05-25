@@ -14,25 +14,91 @@
         <el-icon @click="closeTags(index)"> <Close /></el-icon>
       </li>
     </ul>
+    <!-- 点击全部关闭, 或者关闭其他 -->
+    <div class="tags-close-box">
+      <el-dropdown @command="handleTags">
+        <el-button type="primary">
+          标签选项
+          <el-icon class="el-icon--right">
+            <arrow-down />
+          </el-icon>
+        </el-button>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="all">关闭所有</el-dropdown-item>
+            <el-dropdown-item command="other">关闭其他</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
 import { useTagsStore } from '@s/tags.ts'
 const tags = useTagsStore()
 const route = useRoute()
-
-const closeTags = (index: number) => {
-  tags.removeTagItem(index)
-}
-
+const router = useRouter()
+type ICommandType = 'other' | 'all'
 const isActive = computed(() => {
   return (path: string) => {
     return route.path === path
   }
 })
+
+//关闭tag：如果关闭的是当前的route(后面还有tag的话, 默认激活后面的tag, 没有的话, 默认激活前一个), 否则正常关闭即可
+const closeTags = (index: number) => {
+  const removeItem = tags.list[index]
+  tags.removeTagItem(index)
+  const item = tags.list[index] ? tags.list[index] : tags.list[index - 1]
+  if( item ) {
+    removeItem.path === route.fullPath && router.push(item.fullPath)
+  } else {
+    router.push('/')
+  }
+}
+
+// 设置标签
+const setTags = (route: any) => {
+  const isExistTag = tags.list.some(item => item.path === route.fullPath)
+  if( !isExistTag ) {
+    // 最多只能有8个tag
+    if( tags.list.length > 8 ) tags.removeTagItem(0)
+    tags.addTagsItem({
+      title: route.meta.title,
+      name: route.name,
+      path: route.fullPath
+    })
+  }
+}
+
+// 路由变化时执行 
+onBeforeRouteUpdate((to) => {
+  setTags(to)
+})
+
+// 全部关闭
+const closeAllTags = () => {
+  tags.clearTag()
+  router.push('/')
+}
+
+// 关闭其他
+const closeOtherTags = () => {
+  const otherTagList = tags.list.filter(item => {
+    return item.path !== route.path 
+  })
+
+  tags.closeOtherTags(otherTagList)
+}
+
+// 点击下拉内容
+const handleTags = (command: ICommandType) => {
+  command === 'all' ? closeAllTags() : closeOtherTags()
+}
+
 </script>
 
 <style lang="scss" scoped>

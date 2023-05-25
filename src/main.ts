@@ -5,6 +5,9 @@ import router from './router'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+// 可用于更改element-plus中的样式常量信息
+import '@/assets/style/theme.css'
+import ltBase from '@c/LtBase/index.ts'
 // import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 // import UK from 'element-plus/dist/locale/uk.js'
 
@@ -18,6 +21,7 @@ app.use(ElementPlus, {
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+app.use(ltBase)
 app.use(pinia)
 app.use(router)
 
