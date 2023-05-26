@@ -2,7 +2,9 @@
   <div class="lt-table">
     <!-- 默认集成顶部搜索区域 -->
     <lt-actionBar 
+      @click="handleBarClick"
       :actionItem="actionItem"
+      :actionBtns="actionBtns"
       :actionData="actionData">
     </lt-actionBar>
     <el-table :data="dataList" border height="450">
@@ -48,7 +50,7 @@
       </el-table-column>
     </el-table>
 
-    <div class="lt-table-pagination">
+    <div class="lt-table-pagination" v-if="pageInfo.total">
       <el-pagination 
         layout="total, prev, pager, next" 
         background 
@@ -72,6 +74,7 @@
     headerList: any[],
     actionItem: any[],
     actionData: any,
+    actionBtns: any[],
     pageInfo: IPageInfo
   }
 
@@ -79,11 +82,12 @@
     dataList: () => [],
     headerList: () => [],
     actionItem: () => [],
+    actionBtns: () => [],
     actionData: () => ({}),
     pageInfo: () => ({ total: 0 })
   })
 
-  const emits = defineEmits(['changePage'])
+  const emits = defineEmits(['changePage', 'barClick'])
 
   const srcList = computed(() => {
     return (imgUrl: string) => {
@@ -95,6 +99,10 @@
     let _pageInfo = { ...props.pageInfo, page }
     
     emits('changePage', _pageInfo)
+  }
+
+  const handleBarClick = e => {
+    emits('barClick', e)
   }
 </script>
   

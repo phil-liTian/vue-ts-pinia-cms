@@ -1,8 +1,17 @@
 import Mock, { Random } from 'mockjs'
 const tableNum: number = 25
+const exportTableNum: number = 5
 interface resItem {
   desc: string,
   coverImg: string
+}
+
+interface exportTableItem {
+  id: string,
+  name: string,
+  amount: number,
+  sex: string,
+  desc: string
 }
 
 type IParams = { page: number, pageSize: number }
@@ -28,6 +37,28 @@ const tableApi = {
       result: {
         list: res,
         pageInfo: { ...data, total: tableNum }
+      }
+    }
+  },
+
+  exportTableData: () => {
+    let res : exportTableItem[] = []
+    for( let i = 0; i < exportTableNum; i++ ) {
+      res.push(Mock.mock({
+        id: '@increment',
+        name: '@cname',
+        amount: '@integer(10000, 30000)',
+        'sex|1': ['male', 'female'],
+        desc: '@ctitle'
+      }))
+    }
+
+
+    return {
+      code: 200,
+      result: {
+        list: res,
+        pageInfo: { total: exportTableNum }
       }
     }
   }

@@ -7,3 +7,11 @@ export const requestTable = (data) => {
     data
   })
 }
+
+
+export const requestExportTable = () => {
+  return request({
+    url: '/exportTableData',
+    method: 'get'
+  })
+}
