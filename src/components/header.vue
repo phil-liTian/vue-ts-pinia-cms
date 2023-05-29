@@ -19,11 +19,11 @@
           <span class="btn-bell-badge" v-if="message"></span>
         </div>
         <!-- 用户头像 -->
-        <el-avatar class="user-avator" :size="30" />
+        <el-avatar class="user-avator" :src="avatarUrl" :size="30" />
         <!-- 用户名下拉菜单 -->
         <el-dropdown class="user-name" trigger="click" @command="handleCommand">
           <span class="el-dropdown-link">
-            phil
+            {{curName}}
             <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
@@ -51,6 +51,8 @@
 <script lang="ts" setup>
 import { useSideBarStore } from '@s/sideBar.ts'
 import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import avatarUrl from '../assets/imgs/phil.png'
 const sidebar = useSideBarStore()
 const message: number = 2
 const router = useRouter()
@@ -60,12 +62,14 @@ const collapseChange = () => {
   sidebar.handleChangeCollapse()
 }
 
+const curName = computed(() => {
+  return localStorage.getItem('cms_username')
+})
+
 const handleCommand = (command: ICommand) => {
-  console.log('command', command);
   if( command === 'loginout' ) {
     router.push('/login')
   }
-  
 }
 </script>
 

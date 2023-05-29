@@ -7,6 +7,9 @@
       :actionBtns="actionBtns"
       :actionData="actionData">
     </lt-actionBar>
+    <div class="lt-table-topLeft" v-if="$slots.topLeft">
+      <slot name="topLeft"></slot>
+    </div>
     <el-table :data="dataList" border height="450">
       <el-table-column 
         v-bind="item"
@@ -113,6 +116,10 @@
     padding: 20px;
     background-color: #fff;
     color: #000;
+
+    &-topLeft {
+      margin-bottom: 10px;
+    }
 
     .lt-actionBar {
       margin-bottom: 10px;

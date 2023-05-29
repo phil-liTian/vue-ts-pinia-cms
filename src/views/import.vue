@@ -1,17 +1,20 @@
 <template>
   <div class="importView">
-    <el-upload
-      action="#"
-      :limit="1"
-      accept=".xlsx, .xls"
-      :show-file-list="false"
-      :before-upload="handleBeforeUpload"
-      :http-request="handleUpload">
-      <lt-button icon="UploadFilled" type="primary">上传数据</lt-button>
-    </el-upload>
     <lt-table 
       :headerList="headerList"
       :dataList="dataList">
+
+      <template #topLeft>
+        <el-upload
+          action="#"
+          :limit="1"
+          accept=".xlsx, .xls"
+          :show-file-list="false"
+          :before-upload="handleBeforeUpload"
+          :http-request="handleUpload">
+          <lt-button size="small" icon="UploadFilled" type="primary">上传数据</lt-button>
+        </el-upload>
+      </template>
     </lt-table>
   </div>
 </template>

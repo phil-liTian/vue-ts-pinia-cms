@@ -41,6 +41,7 @@ const handleLogin = async () => {
     localStorage.setItem('cms_username', result.userName)
     const keys = permission.defaultList[result.userName === 'admin' ? 'admin' : 'user']
     permission.handleSet(keys)
+    localStorage.setItem('cms_keys', JSON.stringify(keys))
     router.push('/')
     ElMessage.success('登录成功')
   }

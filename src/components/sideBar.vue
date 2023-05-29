@@ -11,7 +11,7 @@
       router
     >
       <template v-for="item in items">
-        <el-sub-menu :index="item.index" :key="item.index" v-if="item.subs">
+        <el-sub-menu v-permiss="item.meta.permiss" :index="item.index" :key="item.index" v-if="item.subs">
           <template #title>
             <el-icon>
               <component :is="item.icon"></component>
@@ -31,7 +31,7 @@
           
         </el-sub-menu>
         <template v-else>
-          <el-menu-item :index="item.index" :key="item.index">
+          <el-menu-item v-permiss="item.meta.permiss" :index="item.index" :key="item.index">
             <el-icon>
               <component :is="item.icon"></component>
             </el-icon>
@@ -50,7 +50,6 @@ import { items } from './menuConfig'
 import { useSideBarStore } from '@s/sideBar.ts'
 const route = useRoute()
 const onRoutes = computed(() => {
-  console.log('route.path', route.path);
   return route.path
 })
 const sideBar = useSideBarStore()
