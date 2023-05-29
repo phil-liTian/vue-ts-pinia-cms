@@ -1,28 +1,34 @@
 <template>
   <div class="sideBar">
     <el-menu
+      class="sidebar-el-menu"
       :default-active="onRoutes"
       :collapse="sideBar.collapse"
       background-color="#324157"
       text-color="#bfcbd9"
       active-text-color="#20a0ff"
+      unique-opened
       router
     >
-      <template v-for="item in items" :key="item.index">
-        <el-sub-menu :index="item.index" v-if="item.subs">
+      <template v-for="item in items">
+        <el-sub-menu :index="item.index" :key="item.index" v-if="item.subs">
           <template #title>
             <el-icon>
               <component :is="item.icon"></component>
             </el-icon>
             <span>{{ item.title }}</span>
           </template>
-          <el-menu-item
-            :index="subItem.index"
-            v-for="subItem in item.subs"
-            :key="subItem.index"
-          >
-            {{ subItem.title }}
-          </el-menu-item>
+
+          <template v-for="(subItem, subIdx) in item.subs">
+            <el-sub-menu v-if="subItem.subs" :key="subIdx" :index="subItem.index">
+              <template #title>{{ subItem.title }}</template>
+              <el-menu-item :index="threeItem.index" v-for="threeItem in subItem.subs" :key="threeItem">
+                {{ threeItem.title }}
+              </el-menu-item>
+            </el-sub-menu>
+            <el-menu-item v-else :index="subItem.index" :key="subItem.title">{{ subItem.title }}</el-menu-item>
+          </template>
+          
         </el-sub-menu>
         <template v-else>
           <el-menu-item :index="item.index" :key="item.index">
@@ -44,6 +50,7 @@ import { items } from './menuConfig'
 import { useSideBarStore } from '@s/sideBar.ts'
 const route = useRoute()
 const onRoutes = computed(() => {
+  console.log('route.path', route.path);
   return route.path
 })
 const sideBar = useSideBarStore()

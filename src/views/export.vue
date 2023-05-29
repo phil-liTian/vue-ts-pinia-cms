@@ -18,7 +18,7 @@ const headerList = [
   { label: 'ID', prop: 'id' , width: 60 },
   { label: '姓名', prop: 'name' , width: 100 },
   { label: '月薪', prop: 'amount' , width: 150 },
-  { label: '性别', prop: 'sex' },
+  { label: '性别', prop: 'sex', type: 'tag' },
   { label: '描述', prop: 'desc' },
 ]
 

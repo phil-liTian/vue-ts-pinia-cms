@@ -19,7 +19,7 @@ const routes: RouteRecordRaw[] = [
         name: 'Dashboard',
         component: () => import('@v/dashboard.vue'),
         meta: {
-          name: '面板'
+          name: '首页'
         }
       },
       {
@@ -52,6 +52,38 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@v/export.vue'),
         meta: {
           name: '导出'
+        }
+      },
+      {
+        path: '/form',
+        name: 'Form',
+        component: () => import('@v/form.vue'),
+        meta: {
+          name: '基础表单'
+        }
+      },
+      {
+        path: '/upload',
+        name: 'Upload',
+        component: () => import('@v/upload.vue'),
+        meta: {
+          name: '上传'
+        }
+      },
+      {
+        path: '/editor',
+        name: 'Editor',
+        component: () => import('@v/editor.vue'),
+        meta: {
+          name: '编辑器'
+        }
+      },
+      {
+        path: '/management',
+        name: 'Management',
+        component: () => import('@v/management.vue'),
+        meta: {
+          name: '权限管理'
         }
       }
     ]
