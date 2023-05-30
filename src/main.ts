@@ -22,16 +22,16 @@ app.use(ElementPlus, {
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-app.use(ltBase)
+app.use(ltBase, {
+  name: 'phil'
+})
 app.use(pinia)
+
 // import ltDirectives from '@u/directives.ts'
 // app.use(ltDirectives)
 
 import { usePermissionStore } from '@s/permission.ts'
 const permissions = usePermissionStore()
-console.log('permissions', permissions);
-
-
 
 const permiss = {
   mounted(el: HTMLElement, binding: any) {

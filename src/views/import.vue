@@ -55,7 +55,6 @@ const analysisExcel = (file: any) => {
       let datajson = XLSX.read(data, {
           type: 'binary',
       });
-      console.log('datajson', datajson);
       const sheetName = datajson.SheetNames[0]
       const result = XLSX.utils.sheet_to_json(datajson.Sheets[sheetName])
       resolve(result)

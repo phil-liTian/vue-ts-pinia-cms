@@ -35,7 +35,8 @@
                   v-bind="btnItem" 
                   v-for="btnItem in item.btnList" 
                   :key="btnItem.key"
-                  :size="btnItem.size || 'small'">
+                  :size="btnItem.size || 'small'"
+                  @click="handleCellClick(scope.row, btnItem)">
                   {{ btnItem.label }}
                 </lt-button>
               </div>
@@ -90,7 +91,7 @@
     pageInfo: () => ({ total: 0 })
   })
 
-  const emits = defineEmits(['changePage', 'barClick'])
+  const emits = defineEmits(['changePage', 'barClick', 'cellClick'])
 
   const srcList = computed(() => {
     return (imgUrl: string) => {
@@ -102,6 +103,11 @@
     let _pageInfo = { ...props.pageInfo, page }
     
     emits('changePage', _pageInfo)
+  }
+
+  const handleCellClick = (row: any, item: any) => {
+    emits('cellClick', { row, item })
+    
   }
 
   const handleBarClick = e => {

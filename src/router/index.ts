@@ -28,7 +28,7 @@ const routes: RouteRecordRaw[] = [
         name: 'Tabs',
         component: () => import('@v/tabs.vue'),
         meta: {
-          name: '面板',
+          name: 'tab标签',
           permiss: '2'
         }
       },
