@@ -76,10 +76,10 @@
   type ITableProps = {
     dataList: any[],
     headerList: any[],
-    actionItem: any[],
-    actionData: any,
-    actionBtns: any[],
-    pageInfo: IPageInfo
+    actionItem?: any[],
+    actionData?: any,
+    actionBtns?: any[],
+    pageInfo?: IPageInfo
   }
 
   const props = withDefaults(defineProps<ITableProps>(), {
