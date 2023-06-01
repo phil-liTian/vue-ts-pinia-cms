@@ -5,15 +5,18 @@
 </template>
   
 <script lang='ts' setup>
-import { computed } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
+const { proxy } = getCurrentInstance()
 
 // 一定要指定ts类型, 否则双向绑定无法生效
 interface IProps {
-  modelValue: string
+  modelValue: string,
+  valueType: 'number' | 'code' | ''
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  modelValue: ''
+  modelValue: '',
+  valueType: ''
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -24,9 +27,8 @@ const value = computed({
   },
 
   set(val) {
-    console.log('val', val);
-    
-    emits('update:modelValue', val)
+    let res = props.valueType ? proxy.$lt_checkIptVal(val, props.valueType) : val
+    emits('update:modelValue', res)
   }
 })
 

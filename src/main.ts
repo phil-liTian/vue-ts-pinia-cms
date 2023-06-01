@@ -10,6 +10,7 @@ import '@/assets/style/theme.css'
 import ltBase from '@c/LtBase/index.ts'
 import ltDirectives from '@u/directives/index.ts'
 import './mock/index';
+import formCheck from './plugins/formCheck'
 // import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 // import UK from 'element-plus/dist/locale/uk.js'
 
@@ -27,6 +28,7 @@ app.use(ltBase, {
   name: 'phil'
 })
 app.use(ltDirectives)
+app.use(formCheck)
 app.use(pinia)
 import { usePermissionStore } from '@s/permission.ts'
 const permissions = usePermissionStore()

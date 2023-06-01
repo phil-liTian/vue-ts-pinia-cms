@@ -3,7 +3,7 @@
     <el-select v-model="value" v-bind="$attrs">
       <el-option 
         v-for="item in dataList" 
-        :key="item.key"
+        :key="item.value"
         :label="item[filed.label]"
         :value="objFlag ? item : item[filed.value]"
         :disabled="item.disabled">
@@ -52,10 +52,8 @@ import { computed } from "vue"
     set(newVal) {
       // const { objFlag, dataList } = props      
       let res = newVal
-      // if( objFlag ) {
-      //   res = dataList.find(item => item.value === newVal)
-      // }
       console.log('res', res);
+      // 可做返回特定字段
       emits('update:modelValue', res)
     }
   })
