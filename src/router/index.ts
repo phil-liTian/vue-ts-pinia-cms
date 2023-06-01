@@ -87,6 +87,15 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
+        path: '/markdown',
+        name: 'MarkDown',
+        component: () => import('@v/markdown.vue'),
+        meta: {
+          name: 'markdown',
+          permiss: '8'
+        }
+      },
+      {
         path: '/management',
         name: 'Management',
         component: () => import('@v/management.vue'),

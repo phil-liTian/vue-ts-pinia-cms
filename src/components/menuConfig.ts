@@ -67,6 +67,11 @@ export const items = [
             title: '富文本编辑器',
             permiss: '10',
           },
+          {
+            index: '/markdown',
+            title: 'markdown',
+            permiss: '10',
+          },
         ]
       },
     ]

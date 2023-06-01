@@ -25,4 +25,10 @@ import vSideBar from '@c/sideBar.vue'
 const sidebar = useSideBarStore()
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped>
+.content-box {
+  .content {
+    color: #000;
+  }
+}
+</style>
