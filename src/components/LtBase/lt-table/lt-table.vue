@@ -110,7 +110,7 @@
     
   }
 
-  const handleBarClick = e => {
+  const handleBarClick = (e: any) => {
     emits('barClick', e)
   }
 </script>

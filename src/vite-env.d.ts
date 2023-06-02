@@ -8,6 +8,7 @@ declare module '*.vue' {
 }
 
 declare module '*.ts'
+declare module '*.mjs'
 declare module 'mockjs'
 declare module 'vue-schart'
 declare module '@wangeditor/editor-for-vue'

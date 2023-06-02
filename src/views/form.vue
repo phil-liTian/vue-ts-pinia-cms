@@ -15,7 +15,7 @@
 <script lang='ts' setup>
 import { ElMessage } from "element-plus"
 import { reactive, getCurrentInstance } from "vue"
- const { proxy } = getCurrentInstance()
+ const { proxy } = getCurrentInstance() as any
  
  const formConfig = [
     { label: '表单名称', key: 'name', type: 'input', required: true, valueType: 'price' },

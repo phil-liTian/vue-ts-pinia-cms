@@ -142,6 +142,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log('form', from);
+  
   document.title = `phil-${to.meta.name} | vue3-ts-pinia`
   const permiss = usePermissionStore()
   const role = localStorage.getItem('cms_username')

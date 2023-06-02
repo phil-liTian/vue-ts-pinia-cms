@@ -62,7 +62,7 @@ const closeTags = (index: number) => {
 
 // 设置标签
 const setTags = (route: any) => {
-  const isExistTag = tags.list.some(item => item.path === route.fullPath)
+  const isExistTag = tags.list.some((item: any) => item.path === route.fullPath)
   if( !isExistTag ) {
     // 最多只能有8个tag
     if( tags.list.length > 8 ) tags.removeTagItem(0)
@@ -88,7 +88,7 @@ const closeAllTags = () => {
 
 // 关闭其他
 const closeOtherTags = () => {
-  const otherTagList = tags.list.filter(item => {
+  const otherTagList = tags.list.filter((item: any) => {
     return item.path !== route.path 
   })
 

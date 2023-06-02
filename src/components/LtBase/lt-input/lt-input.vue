@@ -6,7 +6,7 @@
   
 <script lang='ts' setup>
 import { computed, getCurrentInstance } from 'vue'
-const { proxy } = getCurrentInstance()
+const { proxy } = getCurrentInstance() as any
 
 // 一定要指定ts类型, 否则双向绑定无法生效
 interface IProps {

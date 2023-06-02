@@ -2,7 +2,7 @@
 
 const clickOutside = {
   beforeMount(el: HTMLElement, binding: any) {
-    document.addEventListener('click', (e: Event) => {
+    document.addEventListener('click', (e: any) => {
       !el.contains(e.target) && binding.value()
     }, false)
   },

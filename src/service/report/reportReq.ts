@@ -1,6 +1,6 @@
 import request from '@u/request.ts'
 
-export const requestTable = (data) => {
+export const requestTable = (data: any) => {
   return request({
     url: '/table',
     method: 'get',

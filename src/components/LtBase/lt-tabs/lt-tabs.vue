@@ -1,6 +1,7 @@
 <template>
   <div class="lt-tabs">
-    <el-tabs v-model="value" :before-leave="handleBeforeLeave">
+    <!-- :before-leave="handleBeforeLeave" -->
+    <el-tabs v-model="value">
       <el-tab-pane 
         v-bind="item"
         v-for="item in dataList" 
@@ -39,10 +40,10 @@
     }
   })
 
-  const handleBeforeLeave = (item) => {
-    // TODO
-    // return Promise.reject()
-  }
+  // const handleBeforeLeave = (item: any) => {
+  //   // TODO
+  //   // return Promise.reject()
+  // }
 </script>
   
 <style lang='scss' scoped>

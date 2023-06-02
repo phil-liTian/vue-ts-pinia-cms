@@ -49,7 +49,7 @@ const requestData = async () => {
   state.pageInfo.total = pageInfo.total
 }
 
-const handleChangePage = (pageInfo) => {
+const handleChangePage = (pageInfo: any) => {
   state.pageInfo = pageInfo
   requestData()
 }

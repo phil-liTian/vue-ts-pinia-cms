@@ -36,7 +36,7 @@ const fetchData = async () => {
   }
 }
 
-const handleActClick = (e) => {
+const handleActClick = (e: any) => {
   if( e.key === 'export' ) {
     exportXlsx()
   }

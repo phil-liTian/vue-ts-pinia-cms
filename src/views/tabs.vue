@@ -67,7 +67,8 @@
     ]
   })
 
-  const handleClick = ({ row, item }) => {
+  const handleClick = (e: any) => {
+    const { row, item } = e
     const { key } = item
     const { activeName } = state
     // mock
