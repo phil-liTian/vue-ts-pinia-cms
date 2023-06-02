@@ -69,6 +69,8 @@ const curName = computed(() => {
 const handleCommand = (command: ICommand) => {
   if( command === 'loginout' ) {
     router.push('/login')
+  } else if(command === 'user') {
+    router.push('/user')
   }
 }
 </script>

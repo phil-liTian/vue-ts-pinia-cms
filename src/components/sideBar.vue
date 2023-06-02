@@ -20,13 +20,13 @@
           </template>
 
           <template v-for="(subItem, subIdx) in item.subs">
-            <el-sub-menu v-if="subItem.subs" :key="subIdx" :index="subItem.index">
+            <el-sub-menu v-permiss="subItem.permiss" v-if="subItem.subs" :key="subIdx" :index="subItem.index">
               <template #title>{{ subItem.title }}</template>
               <el-menu-item :index="threeItem.index" v-for="threeItem in subItem.subs" :key="threeItem">
                 {{ threeItem.title }}
               </el-menu-item>
             </el-sub-menu>
-            <el-menu-item v-else :index="subItem.index" :key="subItem.title">{{ subItem.title }}</el-menu-item>
+            <el-menu-item v-else v-permiss="subItem.permiss" :index="subItem.index" :key="subItem.title">{{ subItem.title }}</el-menu-item>
           </template>
           
         </el-sub-menu>

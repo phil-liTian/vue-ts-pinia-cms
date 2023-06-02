@@ -1,5 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/home.vue'
+import { usePermissionStore } from '@s/permission.ts'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -103,6 +104,15 @@ const routes: RouteRecordRaw[] = [
           name: '权限管理',
           permiss: '9'
         }
+      },
+      {
+        path: '/user',
+        name: 'User',
+        component: () => import('@v/user.vue'),
+        meta: {
+          name: '用户中心',
+          permiss: '9'
+        }
       }
     ]
   },
@@ -132,13 +142,17 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `phil-${to.meta.name} | vue-manage-system`
-  // if (to.path !== '/login') {
-  //   next('/login')
-  // } else {
-  //   next()
-  // }
-  next()
+  document.title = `phil-${to.meta.name} | vue3-ts-pinia`
+  const permiss = usePermissionStore()
+  const role = localStorage.getItem('cms_username')
+  // 没有登录的话先跳转登录
+  if( !role && to.path !== '/login' ) {
+    next('/login')
+  } else if(to.meta.permiss && !permiss.key.includes(to.meta.permiss)) {
+    next('/403')
+  } else {
+    next()
+  }
 })
 
 export default router

@@ -12,7 +12,7 @@ export const items = [
     index: '1',
     title: '表格相关',
     meta: {
-      permiss: '12'
+      permiss: '3'
     },
     subs: [
       {
@@ -37,7 +37,7 @@ export const items = [
     index: '/tabs',
     title: 'tab选项卡',
     meta: {
-      permiss: '6'
+      permiss: '2'
     }
   },
   {
@@ -45,32 +45,32 @@ export const items = [
     index: '2',
     title: '表单相关',
     meta: {
-      permiss: '13'
+      permiss: '6'
     },
     subs: [
       {
         index: '/form',
         title: '基本表单',
-        permiss: '8',
+        permiss: '6',
       },
       {
         index: '/upload',
         title: '文件上传',
-        permiss: '9',
+        permiss: '7',
       },
       {
         title: '编辑器',
-        index: '3',
+        index: '8',
         subs: [
           {
             index: '/editor',
             title: '富文本编辑器',
-            permiss: '10',
+            permiss: '8',
           },
           {
             index: '/markdown',
             title: 'markdown',
-            permiss: '10',
+            permiss: '8',
           },
         ]
       },
@@ -81,7 +81,7 @@ export const items = [
     title: '权限管理',
     index: '/management',
     meta: {
-      permiss: '11'
+      permiss: '9'
     }
   }
 ]
