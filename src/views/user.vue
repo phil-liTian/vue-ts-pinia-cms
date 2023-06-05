@@ -10,8 +10,8 @@
 <script lang='ts' setup name="user">
   import typingCard from '@c/typingCard.vue';
   const introduction = `
-    phil
-    <p>vue、react</p>
+    <h4>phil 前端开发工程师</h4>
+    <p>4年前端工作经验</p>
   `
 </script>
   
