@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "npm run dev",
-    "dev": "vite --open",
+    "dev": "vite --mode test",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
