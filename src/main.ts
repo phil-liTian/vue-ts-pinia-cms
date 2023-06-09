@@ -11,9 +11,11 @@ import ltBase from '@c/LtBase/index.ts'
 import ltDirectives from '@u/directives/index.ts'
 import './mock/index';
 import formCheck from './plugins/formCheck'
-
+import piniaPersist from 'pinia-plugin-persist'
+// 使用pinia-plugin-persist可实现pinia数据持久化
 const app = createApp(App)
 const pinia = createPinia()
+pinia.use(piniaPersist)
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 app.use(ElementPlus, {
